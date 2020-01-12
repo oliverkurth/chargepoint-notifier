@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "ChargePoint Notifier",
+  "description": "Give a desktop notification when it's your turn to plug in",
+  "version": "1.0",
+  "permissions" : ["notifications"],
+  "icons": { "16": "cp-youreup-16.png",
+           "48": "cp-youreup-48.png",
+          "128": "cp-youreup-128.png" },  
+  "content_scripts": [
+    {
+      "matches": ["https://na.chargepoint.com/*"],
+      "js": ["notify.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
