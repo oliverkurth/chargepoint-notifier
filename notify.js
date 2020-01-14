@@ -7,24 +7,27 @@ if (!("Notification" in window)) {
 }
 
 var targetNode = document.getElementById('notification');
-var observer = new MutationObserver(function() {
-    if(targetNode.style.display != 'none') {
-        console.log('triggered');
-        var notification = new Notification("You're Up!");
-    }
-});
-
-observer.observe(targetNode, { attributes: true, childList: false });
-
-var showDetailsNode = document.getElementById('showWaitlistDetailsLink')
-if (showDetailsNode.style.display != 'none') {
-   showDetailsNode.click();
+if (targetNode != null) {
+    var observer = new MutationObserver(function() {
+        if(targetNode.style.display != 'none') {
+            console.log('triggered');
+            var notification = new Notification("You're Up!");
+        }
+    });
+    observer.observe(targetNode, { attributes: true, childList: false });
 }
 
-var detailsObserver = new MutationObserver(function() {
-    if(showDetailsNode.style.display != 'none') {
+var showDetailsNode = document.getElementById('showWaitlistDetailsLink')
+if (showDetailsNode != null) {
+    if (showDetailsNode.style.display != 'none') {
         showDetailsNode.click();
     }
-});
 
-detailsObserver.observe(showDetailsNode, { attributes: true, childList: false });
+    var detailsObserver = new MutationObserver(function() {
+        if(showDetailsNode.style.display != 'none') {
+            showDetailsNode.click();
+        }
+    });
+    detailsObserver.observe(showDetailsNode, { attributes: true, childList: false });
+}
+
