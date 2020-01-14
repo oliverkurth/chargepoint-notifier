@@ -14,7 +14,7 @@ var observer = new MutationObserver(function() {
     }
 });
 
-observer.observe(targetNode, { attributes: true, childList: true });
+observer.observe(targetNode, { attributes: true, childList: false });
 
 var showDetailsNode = document.getElementById('showWaitlistDetailsLink')
 if (showDetailsNode.style.display != 'none') {
