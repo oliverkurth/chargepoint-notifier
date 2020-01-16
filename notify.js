@@ -22,12 +22,5 @@ if (showDetailsNode != null) {
     if (showDetailsNode.style.display != 'none') {
         showDetailsNode.click();
     }
-
-    var detailsObserver = new MutationObserver(function() {
-        if(showDetailsNode.style.display != 'none') {
-            showDetailsNode.click();
-        }
-    });
-    detailsObserver.observe(showDetailsNode, { attributes: true, childList: false });
 }
 
